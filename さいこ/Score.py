@@ -5,7 +5,7 @@ from . import PITCH
 import soundfile as sf
 import numpy as np
 
-def SynthScore(voice:dict,score:list,default_voice:str,SamplePerBeat:int,DefaultEnvelop:np.ndarray):
+def SynthScore(voice:dict,score:list,default_voice:str,SamplePerBeat:int,Engine:str,DefaultEnvelop:np.ndarray):
     lyc = []
     lyctime = []
     tracks = []
@@ -51,13 +51,20 @@ def SynthScore(voice:dict,score:list,default_voice:str,SamplePerBeat:int,Default
             env = note.get('envelop',DefaultEnvelop)
 
             for pernote in freqs:
-                tracks.append(
-                    Core.Envelop(Core.Synth(_voi,length*SamplePerBeat,pernote,vol),env)
-                )
+                if Engine == 'SinWave':
+                    tracks.append(
+                        Core.Envelop(Core.Synth(_voi,length*SamplePerBeat,pernote,vol),env)
+                    )
+                elif Engine == 'SquartWave':
+                    tracks.append(
+                        Core.Envelop(Core.SquartSynth(1/3,length*SamplePerBeat,pernote,vol),env)
+                    )
     
     print()
     return Core.np.concatenate(tracks),lyc,lyctime
 
+def SupportEngine():
+    return ('SinWave','SquartWave')
 
 if __name__ == '__main__':
     v = {'test':[[1,0,0.5],[2,0,0.25]]}

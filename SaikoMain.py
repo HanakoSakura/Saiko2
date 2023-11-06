@@ -20,7 +20,8 @@ def Main():
         spn = track.get('beat',64000)
         env = track.get('envelop',[1.])
         env = さいこ.np.array(env)
-        x,l,lt = さいこ.Score.SynthScore(voice,track.get('score',[]),track.get('voice',''),spn,env)
+        eng = track.get('engine','SinWave')
+        x,l,lt = さいこ.Score.SynthScore(voice,track.get('score',[]),track.get('voice',''),spn,eng,env)
         if tmp.size < x.size:
             tmp = さいこ.np.append(tmp,さいこ.np.zeros(x.size-tmp.size))
             tmp += x
@@ -28,6 +29,15 @@ def Main():
 
 def Write(x,file):
     さいこ.sf.write(file,x,64000,'PCM_16')
+
+def ProjectMain(project_name:str):
+    LoadJSONScore(project_name+'.json')
+    LoadJSONVoice('voice.json')
+    track,l,lt = Main()
+    Write(track,project_name+'.wav')
+    with open(project_name+'.saikolrc','w',encoding='utf-8') as f:
+        print(l)
+        json.dump([l,lt],f,indent=1)
 
 if __name__ == '__main__':
     import sys

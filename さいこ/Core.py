@@ -24,3 +24,23 @@ def Envelop(__track:np.ndarray,envelop:np.ndarray):
         envelop
     )
     return env*__track
+
+def SquartSynth(__High:float,__length:int,__freq:float,__vol:float,SampleRate = 64000):
+    # 一小节长度
+    length = int(SampleRate/__freq)
+    # HIGH长度
+    HIGH = int(length*__High)
+    print(length,HIGH)
+
+    ver = np.array([1.]*HIGH+[-1.]*(length-HIGH),dtype=np.float64)
+    rep = int(np.ceil(__length/length))
+
+    track = np.array([],dtype=np.float64)
+
+    for i in range(rep):
+        track = np.append(track,ver)
+
+
+    return track[:__length]*__vol
+
+
