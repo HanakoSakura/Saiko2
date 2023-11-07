@@ -2,7 +2,7 @@
     {
     "use voice":"piano",
     "beat":6400,
-    "envelop":[0.8,0.4,0.0],
+    "envelop":[0.8,0.6,0.0],
     "score":[
         {"lrc":"ねぇ、もしも"},
         {"beat":4,"pitch":"A4"},

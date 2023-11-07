@@ -31,6 +31,7 @@ def Write(x,file):
     さいこ.sf.write(file,x,64000,'PCM_16')
 
 def ProjectMain(project_name:str):
+    print('Saiko Core Curse:START')
     LoadJSONScore(project_name+'.json')
     LoadJSONVoice('voice.json')
     track,l,lt = Main()
@@ -38,9 +39,11 @@ def ProjectMain(project_name:str):
     with open(project_name+'.saikolrc','w',encoding='utf-8') as f:
         print(l)
         json.dump([l,lt],f,indent=1)
+    print('Saiko Core Curse:END\n')
 
 if __name__ == '__main__':
     import sys
+    print('Saiko Core Curse:START')
     LoadJSONScore(sys.argv[1]+'.json')
     LoadJSONVoice('voice.json')
     track,l,lt = Main()
@@ -48,4 +51,5 @@ if __name__ == '__main__':
     with open(sys.argv[1]+'.saikolrc','w') as f:
         print(l)
         json.dump([l,lt],f,indent=1)
+    print('Saiko Core Curse:END\n')
     

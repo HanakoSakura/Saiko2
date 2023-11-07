@@ -32,6 +32,7 @@ def ConsoleMain(file,SampleRate=64000):
 
     start_time = time.time()
     pointer = 0
+    print()
     while pygame.mixer.music.get_busy():
         if pointer < len(lrcTrack):
             if time.time()-start_time >= lrcTrack[pointer]/SampleRate:
