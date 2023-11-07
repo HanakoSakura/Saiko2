@@ -4,13 +4,21 @@
         "use voice":"piano",
         "beat":32000,
         "score":[
+            {"lrc":"do"},
             {"beat":1,"pitch":"A4"},
+            {"lrc":"re"},
             {"beat":1,"pitch":"B4"},
+            {"lrc":"mi"},
             {"beat":1,"pitch":"#C4"},
+            {"lrc":"fa"},
             {"beat":1,"pitch":"D4"},
+            {"lrc":"so"},
             {"beat":1,"pitch":"E4"},
+            {"lrc":"la"},
             {"beat":1,"pitch":"#F4"},
+            {"lrc":"si"},
             {"beat":1,"pitch":"#G4"},
+            {"lrc":"do"},
             {"beat":1,"pitch":"A5"}
         ]
     }
