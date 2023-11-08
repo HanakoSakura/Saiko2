@@ -9,6 +9,7 @@ def SynthScore(voice:dict,score:list,default_voice:str,SamplePerBeat:int,Engine:
     lyc = []
     lyctime = []
     tracks = []
+    pertmp = []
 
 
     mov = 1
@@ -50,15 +51,19 @@ def SynthScore(voice:dict,score:list,default_voice:str,SamplePerBeat:int,Engine:
 
             env = note.get('envelop',DefaultEnvelop)
 
+            tmp = np.zeros(length*SamplePerBeat)
             for pernote in freqs:
                 if Engine == 'SinWave':
-                    tracks.append(
+                    tmp += (
                         Core.Envelop(Core.Synth(_voi,length*SamplePerBeat,pernote,vol),env)
                     )
                 elif Engine == 'SquartWave':
-                    tracks.append(
+                    tmp += (
                         Core.Envelop(Core.SquartSynth(1/3,length*SamplePerBeat,pernote,vol),env)
                     )
+            tracks.append(tmp)
+                    
+            
     
     print()
     return Core.np.concatenate(tracks),lyc,lyctime

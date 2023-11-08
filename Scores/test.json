@@ -5,6 +5,9 @@
         "envelop":[0.8,0.6,0.2],
         "score":[
             {"lrc":"AAAAA"},
+            {"beat":2,"pitchs":["A4"]},
+            {"beat":2,"pitchs":["#C4"]},
+            {"beat":2,"pitchs":["E4"]},
             {"beat":2,"pitchs":["A4"]}
         ]
 
@@ -15,7 +18,10 @@
         "envelop":[0.8,0.6,0.2],
         "score":[
             {"lrc":"BBBBB"},
-            {"beat":2,"pitchs":["A5"]}
+            {"beat":2,"pitchs":[0]},
+            {"beat":2,"pitchs":[0]},
+            {"beat":2,"pitchs":[0]},
+            {"beat":2,"pitchs":["#C4","E4"]}
         ]
 
     }

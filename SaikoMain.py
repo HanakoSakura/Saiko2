@@ -24,7 +24,7 @@ def Main():
         x,l,lt = さいこ.Score.SynthScore(voice,track.get('score',[]),track.get('voice',''),spn,eng,env)
         if tmp.size < x.size:
             tmp = さいこ.np.append(tmp,さいこ.np.zeros(x.size-tmp.size))
-            tmp += x
+        tmp += x
     return tmp,l,lt
 
 def Write(x,file):
