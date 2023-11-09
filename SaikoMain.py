@@ -37,7 +37,6 @@ def ProjectMain(project_name:str):
     track,l,lt = Main()
     Write(track,project_name+'.wav')
     with open(project_name+'.saikolrc','w',encoding='utf-8') as f:
-        print(l)
         json.dump([l,lt],f,indent=1)
     print('Saiko Core Curse:END\n')
 
@@ -49,7 +48,6 @@ if __name__ == '__main__':
     track,l,lt = Main()
     Write(track,sys.argv[1]+'.wav')
     with open(sys.argv[1]+'.saikolrc','w') as f:
-        print(l)
         json.dump([l,lt],f,indent=1)
     print('Saiko Core Curse:END\n')
     
