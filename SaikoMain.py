@@ -21,7 +21,9 @@ def Main():
         env = track.get('envelop',[1.])
         env = さいこ.np.array(env)
         eng = track.get('engine','SinWave')
-        x,l,lt = さいこ.Score.SynthScore(voice,track.get('score',[]),track.get('voice',''),spn,eng,env)
+        #x,l,lt = さいこ.Score.SynthScore(voice,track.get('score',[]),track.get('voice',''),spn,eng,env)
+        x,l,lt = さいこ.ScoreAnalyzer.Analyzer(voice,track.get('score',[]),default_voice=track.get('voice',''),sr = 64000,SamplePerBeat=spn,Volume=1.0,Engine=eng,Envelop=env)
+        
         if tmp.size < x.size:
             tmp = さいこ.np.append(tmp,さいこ.np.zeros(x.size-tmp.size))
         tmp += x

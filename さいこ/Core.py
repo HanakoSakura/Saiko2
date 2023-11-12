@@ -27,10 +27,12 @@ def Envelop(__track:np.ndarray,envelop:np.ndarray):
 
 def SquartSynth(__High:float,__length:int,__freq:float,__vol:float,SampleRate = 64000):
     # 一小节长度
-    length = int(SampleRate/__freq)
+    if __freq > 0.:
+        length = int(SampleRate/__freq)
+    else:
+        return np.array([1.]*__length)
     # HIGH长度
     HIGH = int(length*__High)
-    print(length,HIGH)
 
     ver = np.array([1.]*HIGH+[-1.]*(length-HIGH),dtype=np.float64)
     rep = int(np.ceil(__length/length))
