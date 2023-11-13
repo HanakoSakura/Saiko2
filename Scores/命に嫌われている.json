@@ -1,9 +1,8 @@
 [
     {
         "voice":"piano",
-        "engine":"SquartWave",
         "beat":9600,
-        "envelop":[0.8,0.8,0.6,0.6,0.3,0.0],
+        "envelop":[0.8,0.6,0.0],
         "score":[
             {"lrc":"「死にたいなんて言うなよ。"},
             {"beat":1,"pitchs":"D4"},
